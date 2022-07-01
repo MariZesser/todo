@@ -13,9 +13,11 @@
 </body>
 
 <template name="main">
-  {{> addProf}}
+  {{#if currentUser}} 
+    {{> addProf}}
+    {{> profile}}
+  {{/if}}
   {{> viewProf}}
-  {{> profile}}
   {{>conDelModal}}
 </template>
 

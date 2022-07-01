@@ -1,5 +1,5 @@
 <template name="profile">
-    <div class="row">
+  <div class="row">
     {{#each profiles}}
       <div class="col-md-4" id="{{_id}}">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -13,6 +13,7 @@
             <h7 class="mb-4">{{date}}</h7>
             <a href="#" class=" js-view">Continue reading</a>
           </div>
+          <!-- {{#if currentUser}} -->
           <div class="col-auto d-none d-lg-block">
             <img src="{{picPath}}" alt="">
             <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
@@ -23,9 +24,10 @@
             </svg> -->
     
           </div>
+          <!-- {{/if}} -->
         </div>
       </div>
     {{/each}}
-    </div>
-  </template>
+  </div>
+</template>
   

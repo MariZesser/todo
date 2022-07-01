@@ -15,7 +15,7 @@ import './ConfirmDelete/CD.html';
 Template.nav.events({
   'click .js-add'() {
     $("#addModal").modal("show");
-  }
+  },
 });
 
 Template.main.events({
@@ -27,7 +27,6 @@ Template.main.events({
     let Age = $("#Age").val();
     let date = $("#date").val();
     let Sex = $("#male").prop("checked") ? "male" : "female";
-    let task = $("#public").prop("checked") ? "public" : "private";
     
 
     if (validateAddForm(fName, lName,Sex,pic,Age,date)) {
@@ -38,7 +37,6 @@ Template.main.events({
         "sex": Sex,
         "age": Age,
         "date": date,
-        "task": Task,
         "createdOn": new Date().getTime()
       });
       $("#addModal").modal("hide");
@@ -70,7 +68,7 @@ Template.main.events({
   }
 });
 
-let validateAddForm = (fn, ln,Sx,pc,Ae,de,Tk) => {
+let validateAddForm = (fn, ln,Sx,pc,Ae,de) => {
   let valid = true;
   $("#fName").removeClass("errorBox");
   $("#lName").removeClass("errorBox");
@@ -78,7 +76,6 @@ let validateAddForm = (fn, ln,Sx,pc,Ae,de,Tk) => {
   $("#pic").removeClass("errorBox");
   $("#date").removeClass("errorBox");
   $("#Sex").removeClass("errorBox");
-  $("#task").removeClass("errorBox");
 
   if (!fn) {
     $("#fName").addClass("errorBox");
@@ -102,10 +99,6 @@ let validateAddForm = (fn, ln,Sx,pc,Ae,de,Tk) => {
   }
   if (!de) {
     $("#date").addClass("errorBox");
-    valid = false;
-  }
-  if (!Tk) {
-    $("#task").addClass("errorBox");
     valid = false;
   }
   return valid;
