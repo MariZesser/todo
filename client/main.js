@@ -11,6 +11,7 @@ import './Profile/profile.html';
 import './Profile/profile.js';
 import './ViewProfile/viewProf.html';
 import './ConfirmDelete/CD.html';
+import './ConfirmDelete/CD.js';
 
 Template.nav.events({
   'click .js-add'() {
@@ -42,10 +43,10 @@ Template.main.events({
       $("#addModal").modal("hide");
     }
   },
-  'input #profPic'() {
-    let path = $("#Profpic").val();
-    path = !path ? "unisex-avatar.png" : path;
-    $("#displaypic").prop("src", path);
+  'input #ProfPic'() {
+    let path = $("#ProfPic").val();
+    path = !path ? "Avatar2.jpg" : path;
+    $("#displayPic").prop("src", path);
     console.log(path);
   },
   'click .js-view'() {
@@ -57,26 +58,32 @@ Template.main.events({
   },
   "click .js-delete"() {
     let dId = $("#docId").val();
-    console.log (dId);
+    $("#conId").val(dId);
     $("#viewModal").modal("hide");
     $("#conDelModal").modal("show");
-    $("#" + dId).fadeOut("slow", () => {
-       socialdb.remove({
-         "_id": dId
-       });
+  },
+  'click #js-add'(){
+    let newTask = $("#newTask").val();
+    socialdb.insert({
+      "Task": newTask
     });
+    $("#newTask").val("");
   }
 });
 
-let validateAddForm = (fn, ln,Sx,pc,Ae,de) => {
+let validateAddForm = (Pp,fn,ln,Sx,Ae,de) => {
   let valid = true;
+  $("#ProfPic").removeClass("errorBox");
   $("#fName").removeClass("errorBox");
   $("#lName").removeClass("errorBox");
   $("#Age").removeClass("errorBox");
-  $("#pic").removeClass("errorBox");
   $("#date").removeClass("errorBox");
   $("#Sex").removeClass("errorBox");
 
+  if (!Pp) {
+    $("#ProfPic").addClass("errorBox");
+    valid = false;
+  }
   if (!fn) {
     $("#fName").addClass("errorBox");
     valid = false;
@@ -87,10 +94,6 @@ let validateAddForm = (fn, ln,Sx,pc,Ae,de) => {
   }
   if (!Sx) {
     $("#Sex").addClass("errorBox");
-    valid = false;
-  }
-  if (!pc) {
-    $("#pic").addClass("errorBox");
     valid = false;
   }
   if (!Ae) {
@@ -105,9 +108,10 @@ let validateAddForm = (fn, ln,Sx,pc,Ae,de) => {
 }
 
 
-
-// profile
-// image
-// name
-// age
-// sex
+//task
+// status
+// dueDate
+// ownId
+// compId
+// priPub
+// trashBin

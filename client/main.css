@@ -19,10 +19,14 @@ body {
   width: 50%;
 }
 
-.w-70 {
-  width: 70%;
-}
-
 .errorBox {
   border: 3px solid red !important;
+}
+
+.icon{
+  font-size: 2rem;
+}
+
+.imputTaskS{
+  font-size: 1.5rem;
 }

@@ -1,5 +1,11 @@
 Template.conDelModal.events({
     'click .js-conDel'(){
-        console.log("confirmation");
+        $("#conDelModal").modal("hide");
+        let cId = $("#conId").val();
+        $("#" + cId).fadeOut("slow", () => {
+        // socialdb.remove({
+        //   "_id": dId
+        // });
+       });
     }
-})
+});

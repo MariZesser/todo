@@ -1,19 +1,19 @@
 <template name="conDelModal" >
-    <div class="modal" tabindex="-1" data-bs-backstage="static" id="conDelModal">
+    <div class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" id="conDelModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <input type="hidden" id="conId">
           </div>
           <div class="modal-body">
             <p>Are you sure?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger js-conDelModal" data-bs-dismiss="modal">Yes</button>
-            <button type="button" class="btn btn-primary">No</button>
+            <button type="button" class="btn btn-danger js-conDel">Yes</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
           </div>
         </div>
       </div>
     </div>
-    </template>
+</template>

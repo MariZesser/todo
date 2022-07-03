@@ -6,7 +6,7 @@ Template.profile.events({
         //socialdb.insert({
 
         //});
-    }
+    },
 });
 
 Meteor.subscribe("name");

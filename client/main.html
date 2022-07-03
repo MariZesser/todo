@@ -13,12 +13,14 @@
 </body>
 
 <template name="main">
-  {{#if currentUser}} 
+  <div class="row">
+    {{#if currentUser}} 
     {{> addProf}}
     {{> profile}}
   {{/if}}
   {{> viewProf}}
   {{>conDelModal}}
+  </div>
 </template>
 
 
