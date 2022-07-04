@@ -15,12 +15,14 @@
 <template name="main">
   <div class="row">
     {{#if currentUser}} 
-    {{> addProf}}
-    {{> profile}}
-  {{/if}}
-  {{> viewProf}}
-  {{>conDelModal}}
+      {{> addProf}}
+      {{> profile}}
+    {{/if}}
   </div>
+    {{> viewProf}}
+    {{> conDelModal}}
+    {{> addTask}}
+    {{> listTasks}}
 </template>
 
 

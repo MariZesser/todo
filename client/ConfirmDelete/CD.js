@@ -3,9 +3,9 @@ Template.conDelModal.events({
         $("#conDelModal").modal("hide");
         let cId = $("#conId").val();
         $("#" + cId).fadeOut("slow", () => {
-        // socialdb.remove({
-        //   "_id": dId
-        // });
+            tododb.remove({
+                "_id": cId
+            });
        });
     }
 });

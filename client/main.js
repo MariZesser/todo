@@ -12,6 +12,12 @@ import './Profile/profile.js';
 import './ViewProfile/viewProf.html';
 import './ConfirmDelete/CD.html';
 import './ConfirmDelete/CD.js';
+import './AddTask/addTask.html';
+import './AddTask/addTask.js';
+import './ListTasks/listTask.html';
+import './ListTasks/listTask.js';
+import './profFilter/profFilter.html';
+import './profFilter/profFilter.js';
 
 Template.nav.events({
   'click .js-add'() {
@@ -22,7 +28,8 @@ Template.nav.events({
 Template.main.events({
   'click .js-saveProfile'() {
     // grad data from fields
-    let pic = $("#Profpic").val();
+    
+    let pic = $("#ProfPic").val();
     let fName = $("#fName").val();
     let lName = $("#lName").val();
     let Age = $("#Age").val();
@@ -30,8 +37,9 @@ Template.main.events({
     let Sex = $("#male").prop("checked") ? "male" : "female";
     
 
-    if (validateAddForm(fName, lName,Sex,pic,Age,date)) {
-      socialdb.insert({
+    if (validateAddForm(pic,fName, lName,Sex,Age,date)) {
+      console.log("that");
+      tododb.insert({
         "picPath": pic,
         "fname": fName,
         "lname": lName,
@@ -53,7 +61,6 @@ Template.main.events({
     let that = this;
     $("#docId").val(that._id);
     $("#chkMe").html("<h2>" + $("#chkMe").html() + "</h2>profile picture<br>first<br>last<br>age<br>sex<br>description");
-    //console.table(that);
     $("#viewModal").modal("show");
   },
   "click .js-delete"() {
@@ -61,13 +68,6 @@ Template.main.events({
     $("#conId").val(dId);
     $("#viewModal").modal("hide");
     $("#conDelModal").modal("show");
-  },
-  'click #js-add'(){
-    let newTask = $("#newTask").val();
-    socialdb.insert({
-      "Task": newTask
-    });
-    $("#newTask").val("");
   }
 });
 
@@ -79,7 +79,7 @@ let validateAddForm = (Pp,fn,ln,Sx,Ae,de) => {
   $("#Age").removeClass("errorBox");
   $("#date").removeClass("errorBox");
   $("#Sex").removeClass("errorBox");
-
+console.log("profpic",Pp);
   if (!Pp) {
     $("#ProfPic").addClass("errorBox");
     valid = false;
@@ -106,12 +106,3 @@ let validateAddForm = (Pp,fn,ln,Sx,Ae,de) => {
   }
   return valid;
 }
-
-
-//task
-// status
-// dueDate
-// ownId
-// compId
-// priPub
-// trashBin

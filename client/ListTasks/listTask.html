@@ -1,0 +1,11 @@
+<template name="listTasks">
+    <div class="row">
+        <div class="col-xl-6 listTextS">
+            <ul class="list-group">
+                {{#each theTasks}}
+                <li class="list-group-item"><input type="hidden" value="{{_id}}">{{task}}</li>
+                {{/each}}
+              </ul>
+        </div>
+    </div>
+</template>
