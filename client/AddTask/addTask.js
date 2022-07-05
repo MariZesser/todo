@@ -1,10 +1,15 @@
 Template.addTask.events({
-    'click #js-add'() {
+    'click #js-add2'() {
             addNewTask();
         },
       'keypress #newTask'(event){
         if(event.keyCode == 13) {
                 addNewTask();
+            }
+        },
+        'keypress #taskdate'(event){
+            if(event.keyCode == 13) {
+                adddate();
             }
         },
       'click .privateTask'() {
@@ -19,25 +24,38 @@ Template.addTask.events({
     }
 });
 
-let validateTask = (task) => {
+let validateTask = (task,duedate) => {
+    console.log("adding",task,duedate);
     let valid = true;
-    $("#js-addTaskGroup").removeClass("errorBox");
+    $("#js-add2TaskGroup").removeClass("errorBox");
+    $("#js-addDate").removeClass("errorBox");
     if(task == ""){
         //console.log("Cannot be empty")
-        $("#js-addTaskGroup").addClass("errorBox");
+        $("#js-add2TaskGroup").addClass("errorBox");
+        valid = false;
+    }
+    if(duedate == ""){
+        //console.log("Cannot be empty")
+        $("#js-addDate").addClass("errorBox");
         valid = false;
     }
     return valid;
 }
 
 let addNewTask = () => {
+
+    
     let newTask = $("#newTask").val();
-    if (validateTask(newTask)) {
+    let duedate = $("#taskdate").val();
+    if (validateTask(newTask,duedate)) {
+        
         tododb.insert({
             "task": newTask,
+            "taskdate": duedate,
             "private" : $(".fa-xmark").hasClass("d-none")
         });
         $("#newTask").val("");
+        $("taskdate").val("");
     }
     
 }

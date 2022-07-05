@@ -25,11 +25,11 @@
               </ul>
             </li>
             <li class="nav-item">
-              <!-- {{#if currentUser}} -->
-              <a class="nav-link js-add" href="#">Add</a>
-              <!-- {{/if}}  -->
+              {{#if currentUser}}
+              <a class="nav-link js-addN" href="#">Add</a>
+              {{/if}} 
             </li>
-            <!-- {{> loginButtons}} -->
+            {{> loginButtons}}
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -10,6 +10,6 @@ Meteor.subscribe("name");
 
 Template.profile.helpers({
     profiles(){
-      return tododb.find();
+      return profilesdb.find({"owner":Meteor.userId()});
     }
   });

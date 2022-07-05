@@ -1,10 +1,14 @@
 <template name="addTask">
     <div class="row">
         <div class="col-xl-6 addTaskFrame-top pt-4 px-5">
-            <div class="input-group mb-3" id="js-addTaskGroup">
+            <div class="input-group mb-3" id="js-add2TaskGroup">
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-list-check"></i></span>
                 <input type="text" class="form-control inputTaskS" id="newTask" placeholder="Add Task" aria-label="Username" aria-describedby="button-addon2">
             </div>
+            <div class="input-group mb-3" id="js-addDate">
+                <span class="input-group-text" id="basic-addon1">Due Date</span>
+                <input id="taskdate" type="date" class="form-control inputDateS" placeholder="Insert Date" aria-label="text" aria-describedby="basic-addon1">
+              </div>
         </div>
     </div>
     <div class="row">
@@ -13,9 +17,9 @@
                 <span>Private</span>
                 <i class="fa-solid fa-check d-none"></i>
                 <i class="fa-solid fa-xmark"></i>
-                <button class="btn btn-outline-dark ms-4" type="button" id="js-add"><span
-                        class="addBtnSize">Add</span></button>
             </div>
+            <button class="btn btn-outline-dark ms-4" type="button" id="js-add2"><span
+                class="addBtnSize">Add</span></button>
         </div>
     </div>
     <div class="row">

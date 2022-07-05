@@ -20,7 +20,7 @@ import './profFilter/profFilter.html';
 import './profFilter/profFilter.js';
 
 Template.nav.events({
-  'click .js-add'() {
+  'click .js-addN'() {
     $("#addModal").modal("show");
   },
 });
@@ -39,14 +39,15 @@ Template.main.events({
 
     if (validateAddForm(pic,fName, lName,Sex,Age,date)) {
       console.log("that");
-      tododb.insert({
+      profilesdb.insert({
         "picPath": pic,
         "fname": fName,
         "lname": lName,
         "sex": Sex,
         "age": Age,
         "date": date,
-        "createdOn": new Date().getTime()
+        "createdOn": new Date().getTime(),
+        "owner" : Meteor.userId()
       });
       $("#addModal").modal("hide");
     }
