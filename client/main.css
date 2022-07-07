@@ -59,3 +59,7 @@ body {
 .privateTask {
   cursor: pointer;
 }
+
+.taskRestore {
+  float:right;
+}

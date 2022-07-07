@@ -25,7 +25,7 @@ Template.addTask.events({
 });
 
 let validateTask = (task,duedate) => {
-    console.log("adding",task,duedate);
+    console.log(task,duedate);
     let valid = true;
     $("#js-add2TaskGroup").removeClass("errorBox");
     $("#js-addDate").removeClass("errorBox");
@@ -52,7 +52,8 @@ let addNewTask = () => {
         tododb.insert({
             "task": newTask,
             "taskdate": duedate,
-            "private" : $(".fa-xmark").hasClass("d-none")
+            "private" : $(".fa-xmark").hasClass("d-none"),
+            "trashBin": false
         });
         $("#newTask").val("");
         $("taskdate").val("");

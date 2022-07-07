@@ -18,6 +18,8 @@ import './ListTasks/listTask.html';
 import './ListTasks/listTask.js';
 import './profFilter/profFilter.html';
 import './profFilter/profFilter.js';
+import './TrashBin/trashBin.html';
+import './TrashBin/trashBin.js';
 
 Template.nav.events({
   'click .js-addN'() {

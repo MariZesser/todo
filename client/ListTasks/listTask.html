@@ -3,9 +3,9 @@
         <div class="col-xl-6 listTextS">
             <ul class="list-group">
                 {{#each theTasks}}
-                <li class="list-group-item"><input id="listId" type="hidden" value="{{_id}}">{{task}}&nbsp;{{taskdate}}<i class="fa-solid fa-eraser js-erase"></i></li>
+                <li class="list-group-item"><input id="listId" type="hidden" value="{{_id}}">{{task}}{{#if private}}[private]{{/if}}&nbsp;{{taskdate}}<i class="fa-solid fa-eraser js-erase"></i></li>
                 {{/each}}
-              </ul>
+            </ul>
         </div>
     </div>
 </template>
