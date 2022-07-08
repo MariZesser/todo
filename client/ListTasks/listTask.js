@@ -1,6 +1,8 @@
 Template.listTasks.helpers({
     theTasks(){
-        return tododb.find({"trashBin":false});
+        if(Session.get("filter") === "All")
+            return tododb.find({"trashBin":false});
+        return tododb.find({"dDate": Session.get("filter")});
     },
 });
 
