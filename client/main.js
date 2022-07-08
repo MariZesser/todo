@@ -4,6 +4,7 @@ import bootstrap from 'bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../lib/collection.js';
+import '../lib/userAccounts.js';
 import './main.html';
 import './Nav/nav.html';
 import './AddProfile/addProf.html';
@@ -20,6 +21,8 @@ import './profFilter/profFilter.html';
 import './profFilter/profFilter.js';
 import './TrashBin/trashBin.html';
 import './TrashBin/trashBin.js';
+import './Login/login.html';
+import './Login/login.js';
 
 Template.nav.events({
   'click .js-addN'() {
@@ -29,7 +32,6 @@ Template.nav.events({
 
 Template.main.events({
   'click .js-saveProfile'() {
-    // grad data from fields
     
     let pic = $("#ProfPic").val();
     let fName = $("#fName").val();

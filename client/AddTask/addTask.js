@@ -30,12 +30,10 @@ let validateTask = (task,duedate) => {
     $("#js-add2TaskGroup").removeClass("errorBox");
     $("#js-addDate").removeClass("errorBox");
     if(task == ""){
-        //console.log("Cannot be empty")
         $("#js-add2TaskGroup").addClass("errorBox");
         valid = false;
     }
     if(duedate == ""){
-        //console.log("Cannot be empty")
         $("#js-addDate").addClass("errorBox");
         valid = false;
     }

@@ -60,6 +60,12 @@ body {
   cursor: pointer;
 }
 
-.taskRestore {
+.taskRestore,
+.taskErase
+ {
+  float:right;
+}
+
+.taskFlag {
   float:right;
 }

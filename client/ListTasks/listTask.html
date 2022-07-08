@@ -3,7 +3,18 @@
         <div class="col-xl-6 listTextS">
             <ul class="list-group">
                 {{#each theTasks}}
-                <li class="list-group-item"><input id="listId" type="hidden" value="{{_id}}">{{task}}{{#if private}}[private]{{/if}}&nbsp;{{taskdate}}<i class="fa-solid fa-eraser js-erase"></i></li>
+                <li class="list-group-item w-100">
+                    <div class="taskItem">
+                        <input id="listId" type="hidden" value="{{_id}}">
+                    {{task}} {{#if private}}[private]{{/if}}&nbsp;{{taskdate}}
+                    </div>
+                    <div class="taskErase">
+                        <i class="fa-solid fa-eraser js-erase"></i>
+                    </div>
+                    <div class="taskFlag">
+                        <i class="fa-solid fa-check-double js-Complete"></i>
+                    </div>
+                </li>
                 {{/each}}
             </ul>
         </div>

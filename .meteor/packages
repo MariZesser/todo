@@ -26,4 +26,4 @@ hot-module-replacement@0.5.1  # Update code in development without reloading the
 blaze-hot               # Update files using Blaze's API with HMR
 barbatus:stars-rating
 accounts-password
-accounts-ui
+useraccounts:bootstrap

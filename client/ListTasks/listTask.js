@@ -12,5 +12,8 @@ Template.listTasks.events({
                 "trashBin": true
             }
         });
-    }
+    },
+    // 'click .js-Complete'() {
+        
+    // }
 });
