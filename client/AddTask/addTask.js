@@ -45,7 +45,7 @@ let addNewTask = () => {
     
     let newTask = $("#newTask").val();
     let duedate = $("#taskdate").val();
-    if (validateTask(newTask,duedate)) {
+    if (validateTask(newTask,duedate,privateTask)) {
         
         tododb.insert({
             "task": newTask,
@@ -54,7 +54,7 @@ let addNewTask = () => {
             "trashBin": false
         });
         $("#newTask").val("");
-        $("taskdate").val("");
+        $("#taskdate").val("");
     }
     
 }
