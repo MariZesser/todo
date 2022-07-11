@@ -1,3 +1,5 @@
+import date from 'date-and-time';
+
 Template.addTask.events({
     'click #js-add2'() {
             addNewTask();
@@ -45,7 +47,16 @@ let addNewTask = () => {
     
     let newTask = $("#newTask").val();
     let duedate = $("#taskdate").val();
-    if (validateTask(newTask,duedate,privateTask)) {
+    if(!duedate){
+        duedate = new Date();
+        duedate = date.addDays(duedate, 1);
+        $("#taskdate").val(date.format(duedate, 'YYYY-MM-DD'));
+    }
+    else{
+        duedate = date.parse(duedate, 'YYYY-MM-DD');
+    }
+    // console.log("days remaining:", Math.round(date.subtract(duedate, new Date()).toDays()));
+    if (validateTask(newTask)) {
         
         tododb.insert({
             "task": newTask,

@@ -1,7 +1,19 @@
+Session.set("dateOrder", 1);
+
 Template.listTasks.helpers({
     theTasks(){
-            return tododb.find({"trashBin":false});
+        return tododb.find({"trashBin":false},
+         {sort:{
+            "taskdate" : Session.get("dateOrder")
+            }
+        });
     },
+    sortOrder(){
+        if(Session.equals("dateOrder", 1)){
+            return true;
+        }
+        return false;
+    }
 });
 
 Template.listTasks.events({
@@ -13,7 +25,16 @@ Template.listTasks.events({
             }
         });
     },
-    'click .js-Complete'() {
-        
+    'click .js-sortDate'() {
+        if(Session.equals("dateOrder", 1)) {
+            Session.set("dateOrder", -1);
+            $(".js-sortDate").removeClass("fa-arrow-down-1-9");
+            $(".js-sortDate").addClass("fa-arrow-up-9-1");
+        }
+        else{
+            Session.set("dateOrder", 1);
+            $(".js-sortDate").removeClass("fa-arrow-up-9-1");
+            $(".js-sortDate").addClass("fa-arrow-down-1-9");
+        }
     }
 });
