@@ -55,7 +55,6 @@ let addNewTask = () => {
     else{
         duedate = date.parse(duedate, 'YYYY-MM-DD');
     }
-    // console.log("days remaining:", Math.round(date.subtract(duedate, new Date()).toDays()));
     if (validateTask(newTask)) {
         
         tododb.insert({

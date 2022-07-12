@@ -16,8 +16,18 @@ Template.listTasks.helpers({
         return false;
     },
     "dueDays"(){
-        console.log(date.subtract(new Date(), duedate));
-        return date.subtract(new Date(), duedate);
+        let timeRem = date.subtract(this.taskdate, new Date()).toDays();
+        if(timeRem < 0){
+            timeRem ="Overdue!"
+        }
+        else if(timeRem < 1){
+            timeRem = date.subtract(this.taskdate, new Date()).toHours();
+            timeRem = parseInt(timeRem, 10) + " hours";
+        }
+        else{
+            timeRem = parseInt(timeRem, 10) + " days";
+        }
+        return timeRem;
     }
 });
 
@@ -40,6 +50,23 @@ Template.listTasks.events({
             Session.set("dateOrder", 1);
             $(".js-sortDate").removeClass("fa-arrow-up-9-1");
             $(".js-sortDate").addClass("fa-arrow-down-1-9");
+        }
+    },
+    'click .js-Complete'() {
+        let listId = this._id;
+        if(this.comp){
+            tododb.update({_id:listId}, {
+                $set:{
+                    comp:false
+                }
+            }); 
+        }
+        else{
+            tododb.update({_id:listId}, {
+                $set:{
+                    comp:true
+                }
+            });
         }
     }
 });
