@@ -4,7 +4,7 @@
             Task
         </div>
         <div class="col">
-            Due Date
+            Days Due&nbsp;
             <i class="fa-solid fa-arrow-down-1-9 privateTask js-sortDate"></i>
         </div>
     </div>
@@ -15,7 +15,7 @@
                 <li class="list-group-item w-100">
                     <div class="taskItem">
                         <input id="listId" type="hidden" value="{{_id}}">
-                    {{task}} {{#if private}}[private]{{/if}}&nbsp;{{taskdate}}
+                    {{task}} {{#if private}}[private]{{/if}}&nbsp;{{dueDays}}
                     </div>
                     <div class="taskErase">
                         <i class="fa-solid fa-eraser js-erase"></i>

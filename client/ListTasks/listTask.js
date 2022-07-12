@@ -1,3 +1,4 @@
+import date from "date-and-time";
 Session.set("dateOrder", 1);
 
 Template.listTasks.helpers({
@@ -13,6 +14,10 @@ Template.listTasks.helpers({
             return true;
         }
         return false;
+    },
+    "dueDays"(){
+        console.log(date.subtract(new Date(), duedate));
+        return date.subtract(new Date(), duedate);
     }
 });
 
