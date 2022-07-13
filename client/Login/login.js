@@ -1,8 +1,12 @@
 Template.Login.events({
     'click .js-logOut'() {
         AccountsTemplates.logout();
-        listTaskTemplates.logout("[private]")
+        // listTaskTemplates.logout("[private]")
+    },
+    logout(){
+        
     }
+
 });
 
 Template.Login.helpers({

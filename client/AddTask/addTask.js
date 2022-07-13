@@ -3,6 +3,10 @@ import date from 'date-and-time';
 Template.addTask.events({
     'click #js-add2'() {
             addNewTask();
+            if ($(".fa-xmark").hasClass("d-none")) {
+                $(".fa-xmark").removeClass("d-none");
+                $(".fa-check").addClass("d-none");
+            }
         },
       'keypress #newTask'(event){
         if(event.keyCode == 13) {
@@ -27,7 +31,6 @@ Template.addTask.events({
 });
 
 let validateTask = (task,duedate) => {
-    console.log(task,duedate);
     let valid = true;
     $("#js-add2TaskGroup").removeClass("errorBox");
     $("#js-addDate").removeClass("errorBox");

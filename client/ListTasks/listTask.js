@@ -3,11 +3,15 @@ Session.set("dateOrder", 1);
 
 Template.listTasks.helpers({
     theTasks(){
-        return tododb.find({"trashBin":false},
-         {sort:{
-            "taskdate" : Session.get("dateOrder")
-            }
-        });
+        if(Meteor.userId()){
+            return tododb.find({"trashBin":false},
+                    {sort:{
+                        "taskdate" : Session.get("dateOrder")
+                        }
+                    });
+        }
+        return tododb.find({"trashBin":false, "private":false});
+        
     },
     sortOrder(){
         if(Session.equals("dateOrder", 1)){
