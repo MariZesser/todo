@@ -41,7 +41,6 @@ Template.main.events({
     
 
     if (validateAddForm(pic,fName, lName,Sex,Age,date)) {
-      console.log("that");
       profilesdb.insert({
         "picPath": pic,
         "fname": fName,
@@ -59,7 +58,6 @@ Template.main.events({
     let path = $("#ProfPic").val();
     path = !path ? "Avatar2.jpg" : path;
     $("#displayPic").prop("src", path);
-    console.log(path);
   },
   'click .js-view'() {
     let that = this;
@@ -83,7 +81,6 @@ let validateAddForm = (Pp,fn,ln,Sx,Ae,de) => {
   $("#Age").removeClass("errorBox");
   $("#date").removeClass("errorBox");
   $("#Sex").removeClass("errorBox");
-console.log("profpic",Pp);
   if (!Pp) {
     $("#ProfPic").addClass("errorBox");
     valid = false;
